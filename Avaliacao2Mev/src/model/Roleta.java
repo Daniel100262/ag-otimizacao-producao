@@ -10,11 +10,13 @@ public class Roleta {
 	ArrayList<Double> posicoes = new ArrayList<Double>();
 	
 	public Roleta(Populacao p) {
+		System.out.println("Recebi a populacao");
 		populacao = p;
 		criaRoleta();
 	}
 	
 	public void criaRoleta() {
+		System.out.println("Iniciou a criação da roleta");
 		int qt=0;
 		for (Individuo ind : populacao.individuos) {
 			double posInd = ind.getProbabilidade();

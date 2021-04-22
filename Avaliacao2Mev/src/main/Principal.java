@@ -40,15 +40,20 @@ public class Principal {
 		
 		Populacao pop = new Populacao();
 		
+		
 		listaInds = pop.geraIndividuosPopulacao(5);
 		
-		mostraIndividuosGerados(listaInds);
+		
+		
+		mostraIndividuosGerados(listaInds); //Na hora de mostrar ele calcula o fitness
+		
+		pop.calculaProbabilidades();
 		
 		Roleta roleta = new Roleta(pop);
 		
 		Individuo indSorteado = roleta.sorteia();
 		
-		System.out.println("Ind Sorteado: "+indSorteado);
+		System.out.println("\nInd Sorteado: \n"+indSorteado);
 		
 	}
 	
