@@ -3,6 +3,7 @@ package main;
 import java.util.ArrayList;
 
 import model.Individuo;
+import model.Pais;
 import model.Populacao;
 import model.Roleta;
 
@@ -40,8 +41,9 @@ public class Principal {
 		
 		Populacao pop = new Populacao();
 		
+		int qtPorGeracao = 16;
 		
-		listaInds = pop.geraIndividuosPopulacao(5);
+		listaInds = pop.geraIndividuosPopulacao(qtPorGeracao);
 		
 		
 		
@@ -51,9 +53,20 @@ public class Principal {
 		
 		Roleta roleta = new Roleta(pop);
 		
-		Individuo indSorteado = roleta.sorteia();
+		//Individuo indSorteado = roleta.sorteia();
 		
-		System.out.println("\nInd Sorteado: \n"+indSorteado);
+		//System.out.println("\nInd Sorteado: \n"+indSorteado);
+		
+		Pais pais = new Pais();
+		
+		pais.populaListaPais(qtPorGeracao/2, roleta);
+		
+		int idPai=0;
+		
+		for (Individuo ind : pais.individuos) {
+			idPai++;
+			System.out.println("Pai ID: "+idPai+" gerado!\n"+ind);
+		}
 		
 	}
 	
