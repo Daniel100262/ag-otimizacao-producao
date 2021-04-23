@@ -76,7 +76,7 @@ public class Principal {
 	public static void mostraIndividuosGerados(ArrayList<Individuo> listaInds) {
 		for (Individuo ind : listaInds) {
 			ind.calculaFitness(listaInds);
-			System.out.println(ind);
+			System.out.println("Ind impresso do mostraIndividuosGerados: "+ind);
 		}
 	}
 	

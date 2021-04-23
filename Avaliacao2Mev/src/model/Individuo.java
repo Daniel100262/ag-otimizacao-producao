@@ -15,6 +15,12 @@ public class Individuo {
 	private boolean solucaoViavel;
 	
 	
+	/*
+	 * Esse arraylist é 
+	 * */
+	public ArrayList<Individuo> cromossomo = new ArrayList<Individuo>();																	
+	 																	
+	
 	int custoTotal;
 	int tempoTotal;
 	int lucroTotal;

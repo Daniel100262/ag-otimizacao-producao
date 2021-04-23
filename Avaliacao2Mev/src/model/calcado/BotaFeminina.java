@@ -10,7 +10,6 @@ public class BotaFeminina {
 	private int quantidade;
 	
 	
-	
 	public BotaFeminina(int qnt) {
 		quantidade = qnt;
 	}

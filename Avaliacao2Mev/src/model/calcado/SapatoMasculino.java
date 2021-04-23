@@ -2,6 +2,7 @@ package model.calcado;
 
 import java.util.Random;
 
+
 public class SapatoMasculino {
 	private int materiaPrima=1;
 	private int custoProducao=120;

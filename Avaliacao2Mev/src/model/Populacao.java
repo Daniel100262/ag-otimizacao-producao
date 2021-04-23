@@ -29,6 +29,7 @@ public class Populacao {
 			if(ind.isSolucaoViavel()) {
 				listaInds.add(ind);
 				individuos.add(ind);
+				ind.cromossomo.add(ind);
 				
 			} else {
 				i--;
