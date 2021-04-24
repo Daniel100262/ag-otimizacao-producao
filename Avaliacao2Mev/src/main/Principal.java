@@ -30,48 +30,40 @@ import model.Roleta;
 
 public class Principal {
 	
-	
-	
-	
 	public static void main(String[] args) {
 		
-		ArrayList<Individuo> listaInds = new ArrayList<Individuo>();
+		ArrayList<Individuo> listaInds = new ArrayList<Individuo>(); //array p/ armazenar inds(solucoes) gerados aleatoriamente
 		
 		//listaInds = geraIndividuosPopulacao(5);
 		
-		Populacao pop = new Populacao();
+		Populacao pop = new Populacao(); //Conjunto de inds gerados
+		int qtPorGeracao = 16; //Max de individuos gerados por geracao (pai, filho, neto). Sera o dobro do nro de pais
 		
-		int qtPorGeracao = 16;
-		
-		listaInds = pop.geraIndividuosPopulacao(qtPorGeracao);
-		
-		
+		listaInds = pop.geraIndividuosPopulacao(qtPorGeracao); //Gera aleatoriamente inds
 		
 		mostraIndividuosGerados(listaInds); //Na hora de mostrar ele calcula o fitness
 		
-		pop.calculaProbabilidades();
+		pop.calculaProbabilidades(); //Calcula probabilidades p/ usar na roleta
+		Roleta roleta = new Roleta(pop); //Cria uma roleta com a populacao e suas probabilidades
+		Pais pais = new Pais(); 
+		pais.populaListaPais(qtPorGeracao/2, roleta); //Seleciona os pais usando a roleta (com metade da quantidade de inds).
 		
-		Roleta roleta = new Roleta(pop);
-		
-		//Individuo indSorteado = roleta.sorteia();
-		
-		//System.out.println("\nInd Sorteado: \n"+indSorteado);
-		
-		Pais pais = new Pais();
-		
-		pais.populaListaPais(qtPorGeracao/2, roleta);
-		
-		int idPai=0;
+		int idPai=0; //Apenas para enumerar os pais gerados e facilitar a contagem.
 		
 		for (Individuo ind : pais.individuos) {
 			idPai++;
 			System.out.println("Pai ID: "+idPai+" gerado!\n"+ind);
 		}
 		
+		System.out.println("************************ Daqui pra frente só filhos ************************");
+		//pais.reproduz(4); // Cromossomo é composto por 4 genes
+		
+		Populacao nova = pais.reproduz(4); // Cromossomo é composto por 4 genes
+		
+		for (Individuo filho : nova.individuos) {
+			System.out.println(filho);
+		}
 	}
-	
-
-	
 	
 	public static void mostraIndividuosGerados(ArrayList<Individuo> listaInds) {
 		for (Individuo ind : listaInds) {
@@ -79,6 +71,5 @@ public class Principal {
 			System.out.println("Ind impresso do mostraIndividuosGerados: "+ind);
 		}
 	}
-	
 	
 }

@@ -16,14 +16,24 @@ public class Individuo {
 	
 	
 	/*
-	 * Esse arraylist é 
+	 * Esse arraylist é composto por objetos de varios tipos, sao eles:
+	 * 
+	 * BotaFeminina, Sandalia, SapatoFeminino e SapatoMasculino
+	 * 
+	 * pos0 = Sandalia (e seus atributos)
+	 * pos1 = SapatoFemino (e seus atributos)
+	 * pos2 = SapatoMasculino (e seus atributos)
+	 * pos3 = BotaFeminina (e seus atributos)
+	 * 
 	 * */
-	public ArrayList<Individuo> cromossomo = new ArrayList<Individuo>();																	
+	public ArrayList<Object> cromossomo = new ArrayList<Object>();																	
 	 																	
 	
 	int custoTotal;
 	int tempoTotal;
 	int lucroTotal;
+	
+
 	private int fitness;
 	private double probabilidade;
 	
@@ -43,6 +53,12 @@ public class Individuo {
 		custoTotal = sandalia.getCustoProducao()+sapatoFem.getCustoProducao()+sapatoMasc.getCustoProducao()+botaFem.getCustoProducao();
 		tempoTotal = sandalia.getTempoProducao()+sapatoFem.getTempoProducao()+sapatoMasc.getTempoProducao()+botaFem.getTempoProducao();
 		lucroTotal = sandalia.getLucro()+sapatoFem.getLucro()+sapatoMasc.getLucro()+botaFem.getLucro();
+		
+		cromossomo.add(sandalia);
+		cromossomo.add(sapatoFem);
+		cromossomo.add(sapatoMasc);
+		cromossomo.add(botaFem);
+		
 	}
 	
 	public BotaFeminina getBotaFem() {
@@ -77,15 +93,33 @@ public class Individuo {
 	public void setProbabilidade(double probabilidade) {
 		this.probabilidade = probabilidade;
 	}
+	
+	
+	
 
+	
 	public int getCustoTotal() {
 		return custoTotal;
 	}
+	
+	public void setCustoTotal(int custoTotal) {
+		this.custoTotal = custoTotal;
+	}
+	
 	public int getTempoTotal() {
 		return tempoTotal;
 	}
+	
+	public void setTempoTotal(int tempoTotal) {
+		this.tempoTotal = tempoTotal;
+	}
+	
 	public int getLucroTotal() {
 		return lucroTotal;
+	}
+	
+	public void setLucroTotal(int lucroTotal) {
+		this.lucroTotal = lucroTotal;
 	}
 	
 	public int getFitness() {
