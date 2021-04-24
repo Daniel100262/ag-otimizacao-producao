@@ -61,8 +61,15 @@ public class Principal {
 		Populacao nova = pais.reproduz(4); // Cromossomo é composto por 4 genes
 		
 		for (Individuo filho : nova.individuos) {
-			System.out.println(filho);
+			nova.calculaProbabilidades();
+			filho.calculaFitness(listaInds);
+			//System.out.println(filho);
 		}
+		
+		for (int i = 0; i < 10; i++) {
+			
+		}
+		
 	}
 	
 	public static void mostraIndividuosGerados(ArrayList<Individuo> listaInds) {
